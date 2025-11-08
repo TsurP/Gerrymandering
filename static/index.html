@@ -30,9 +30,18 @@
     <header>
       <h1>Interactive Gerrymandering Simulator — U.S. States</h1>
       <p class="subtitle">
-        Pick a state and a mode. We’ll load the current congressional map (118th Congress) and classify it.
+        Pick a state and a mode. Click a state on the map to drill down.
+        <span id="hoverPill" style="display:none;margin-left:8px;padding:2px 8px;border-radius:999px;font-weight:600;"></span>
       </p>
+    
+      <!-- NEW: color legend -->
+      <div class="legend">
+        <span class="legend-item"><i class="legend-dot dem"></i> favors Democrats</span>
+        <span class="legend-item"><i class="legend-dot rep"></i> favors Republicans</span>
+        <span class="legend-item"><i class="legend-dot fair"></i> fair / unknown</span>
+      </div>
     </header>
+
 
     <section class="controls">
       <label>
