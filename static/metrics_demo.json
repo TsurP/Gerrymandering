@@ -1,0 +1,38 @@
+{
+  "CA": {
+    "classification": "favors_democrats",
+    "summary": {
+      "pop_variance_pct": { "min": -0.9, "max": 1.1, "mean": 0.3 },
+      "compactness": { "mean_polsby_popper": 0.36 },
+      "expected_seats": { "dem": 34, "rep": 19 },
+      "notes": [
+        "Demo-only metrics. Replace with Census + election data.",
+        "Coastal districts lean D; Central Valley more R."
+      ]
+    }
+  },
+  "TX": {
+    "classification": "favors_republicans",
+    "summary": {
+      "pop_variance_pct": { "min": -0.8, "max": 0.9, "mean": 0.2 },
+      "compactness": { "mean_polsby_popper": 0.31 },
+      "expected_seats": { "dem": 13, "rep": 25 },
+      "notes": [
+        "Demo-only metrics. Replace with Census + election data.",
+        "Suburban ring shows GOP advantage under current map."
+      ]
+    }
+  },
+  "FL": {
+    "classification": "favors_republicans",
+    "summary": {
+      "pop_variance_pct": { "min": -0.7, "max": 0.8, "mean": 0.2 },
+      "compactness": { "mean_polsby_popper": 0.33 },
+      "expected_seats": { "dem": 8, "rep": 20 },
+      "notes": [
+        "Demo-only metrics. Replace with Census + election data.",
+        "North FL and I-4 corridor decisive in seat outcomes."
+      ]
+    }
+  }
+}
