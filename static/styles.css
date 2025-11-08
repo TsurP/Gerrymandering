@@ -81,3 +81,15 @@ footer {
   border-top: 1px solid #1f2937;
 }
 a { color: var(--accent); }
+
+/* pointer on hover for states */
+.leaflet-interactive { cursor: pointer; }
+
+/* legend styles */
+.legend { margin-top: 6px; color: var(--muted); font-size: 13px; display:flex; gap:16px; }
+.legend-item { display:inline-flex; align-items:center; gap:6px; }
+.legend-dot { display:inline-block; width:10px; height:10px; border-radius:50%; }
+.legend-dot.dem { background:#2563eb; }
+.legend-dot.rep { background:#dc2626; }
+.legend-dot.fair { background:#9ca3af; }
+
