@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Interactive Gerrymandering Simulator — U.S. States</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+  <!-- Leaflet -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  />
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+    defer
+  ></script>
+
+  <!-- d3 & topojson for converting US Atlas TopoJSON to GeoJSON -->
+  <script src="https://unpkg.com/d3@7"></script>
+  <script src="https://unpkg.com/topojson-client@3"></script>
+
+  <script defer src="/static/main.js"></script>
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>Interactive Gerrymandering Simulator — U.S. States</h1>
+      <p class="subtitle">
+        Pick a state and a mode. We’ll load the current congressional map (118th Congress) and classify it.
+      </p>
+    </header>
+
+    <section class="controls">
+      <label>
+        State:
+        <select id="stateSelect">
+          <option value="CA">California</option>
+          <option value="TX">Texas</option>
+          <option value="FL">Florida</option>
+          <option value="NY">New York</option>
+          <option value="PA">Pennsylvania</option>
+          <option value="IL">Illinois</option>
+          <option value="OH">Ohio</option>
+          <option value="GA">Georgia</option>
+          <option value="NC">North Carolina</option>
+          <option value="MI">Michigan</option>
+          <option value="AZ">Arizona</option>
+          <option value="WI">Wisconsin</option>
+          <option value="VA">Virginia</option>
+          <!-- Add any state; the topojson supports all -->
+        </select>
+      </label>
+
+      <label>
+        Mode:
+        <select id="modeSelect">
+          <option value="fair">Fair</option>
+          <option value="favor_democrats">Favor Democrats</option>
+          <option value="favor_republicans">Favor Republicans</option>
+        </select>
+      </label>
+
+      <button id="generateBtn">Generate Map</button>
+    </section>
+
+    <section class="layout">
+      <aside id="sidebar">
+        <div class="card">
+          <h3>Current Map — Classification</h3>
+          <div id="classification">Loading…</div>
+        </div>
+        <div class="card">
+          <h3>Summary Metrics</h3>
+          <pre id="summary">Loading…</pre>
+        </div>
+        <div class="card">
+          <h3>Notes</h3>
+          <ul id="notes"></ul>
+        </div>
+        <div class="card info">
+          <h3>About “Fair”</h3>
+          <p>
+            A <strong>fair</strong> map has roughly equal population per district (target ≤ ±1%),
+            districts are contiguous & compact, and shows no systematic bias for a party.
+            A <strong>biased</strong> map moves boundaries so more districts lean to one party.
+          </p>
+        </div>
+      </aside>
+
+      <div id="map"></div>
+    </section>
+
+    <footer>
+      Data (district geometries): <a href="https://github.com/topojson/us-atlas" target="_blank" rel="noreferrer">us-atlas (Congress 118)</a>.
+      Demo metrics: local JSON (replace with Census + MIT Election Data for production).
+    </footer>
+  </div>
+</body>
+</html>
